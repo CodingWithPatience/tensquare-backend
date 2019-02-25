@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    config:
-      name: gatewayManager
-      profile: dev
-      label: master
-      uri: http://192.168.254.128:10000
