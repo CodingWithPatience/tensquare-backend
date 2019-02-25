@@ -231,7 +231,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -266,7 +266,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551068230921" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551072112012" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -425,7 +425,7 @@
       <workItem from="1550629855345" duration="770000" />
       <workItem from="1550645530623" duration="128000" />
       <workItem from="1550717576769" duration="1097000" />
-      <workItem from="1551062077496" duration="5222000" />
+      <workItem from="1551062077496" duration="6261000" />
     </task>
     <task id="LOCAL-00001" summary="update controller">
       <created>1545660097772</created>
@@ -466,7 +466,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48277000" />
+    <option name="totallyTimeSpent" value="49316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
