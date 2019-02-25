@@ -3,23 +3,14 @@
  */
 package com.zhihao.tensquare.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.zhihao.tensquare.constant.StatusCode;
 import com.zhihao.tensquare.dto.Result;
 import com.zhihao.tensquare.entity.Channel;
 import com.zhihao.tensquare.service.ChannelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author zzh
@@ -36,16 +27,14 @@ public class ChannelController {
 	@GetMapping("")
 	public Result<?> listAll() {
 		List<Channel> channels = channelService.findAll();
-		String message = "返回所有的Channel对象";
-		Result<List<Channel>> result = new Result<List<Channel>>(true, StatusCode.OK, message, channels);
+		Result<List<Channel>> result = new Result<>(true, StatusCode.OK, "查询成功", channels);
 		return result;
 	}
 	
 	@GetMapping("/{id}")
 	public Result<?> listById(@PathVariable String id) {
 		Channel channel = channelService.findById(id);
-		String message = "返回id为"+id+"的Channel对象";
-		Result<Channel> result = new Result<Channel>(true, StatusCode.OK, message, channel);
+		Result<Channel> result = new Result<>(true, StatusCode.OK, "查询成功", channel);
 		return result;
 	}
 	
@@ -59,17 +48,15 @@ public class ChannelController {
 	@PostMapping("/search")
 	public Result<?> search(@RequestBody Channel channel) {
 		List<Channel> channels = channelService.search(channel);
-		String message = "本次搜索返回"+channels.size()+"个结果";
-		Result<?> result = new Result<>(true, StatusCode.OK, message, channels);
+		Result<?> result = new Result<>(true, StatusCode.OK, "查询成功", channels);
 		return result;
 	}
 	
 	@PostMapping("/search/{pageNum}")
-	public Result<?> searchPageabel(@RequestBody Channel channel,
+	public Result<?> searchPageable(@RequestBody Channel channel,
 			@PathVariable(value="pageNum") int pageNum) {
 		List<Channel> channels = channelService.searchPageable(channel, pageNum);
-		String message = "返回第"+pageNum+"页的搜索结果";
-		Result<?> result = new Result<>(true, StatusCode.OK, message, channels);
+		Result<?> result = new Result<>(true, StatusCode.OK, "查询成功", channels);
 		return result;
 	}
 	

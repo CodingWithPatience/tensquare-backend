@@ -3,17 +3,12 @@
  */
 package com.zhihao.tensquare.service.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.servlet.http.HttpServletRequest;
-
+import com.zhihao.tensquare.constant.ArticleConst;
+import com.zhihao.tensquare.entity.Article;
+import com.zhihao.tensquare.repository.ArticleRepository;
+import com.zhihao.tensquare.service.ArticleService;
+import com.zhihao.tensquare.util.IdWorker;
+import com.zhihao.tensquare.util.PropertyCopyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -21,12 +16,15 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.zhihao.tensquare.constant.ArticleConst;
-import com.zhihao.tensquare.entity.Article;
-import com.zhihao.tensquare.repository.ArticleRepository;
-import com.zhihao.tensquare.service.ArticleService;
-import com.zhihao.tensquare.util.IdWorker;
-import com.zhihao.tensquare.util.PropertyCopyUtil;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @author zzh
@@ -182,7 +180,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public List<Article> findByBycolumnId(String columnId, int pageNum) {
+	public List<Article> findByByColumnId(String columnId, int pageNum) {
 		PageRequest pageRequest = PageRequest.of(pageNum-1, ArticleConst.COUNT_PER_PAGE);
 		return repository.findByColumnId(columnId, pageRequest).getContent();
 	}

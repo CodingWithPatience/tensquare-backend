@@ -3,23 +3,14 @@
  */
 package com.zhihao.tensquare.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.zhihao.tensquare.constant.StatusCode;
 import com.zhihao.tensquare.dto.Result;
 import com.zhihao.tensquare.entity.Article_Column;
 import com.zhihao.tensquare.service.ColumnService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author zzh
@@ -36,14 +27,14 @@ public class ColumnController {
 	@GetMapping("")
 	public Result<?> listAll() {
 		List<Article_Column> columns = columnService.findAll();
-		Result<List<Article_Column>> result = new Result<List<Article_Column>>(true, StatusCode.OK, "查询成功", columns);
+		Result<List<Article_Column>> result = new Result<>(true, StatusCode.OK, "查询成功", columns);
 		return result;
 	}
 	
 	@GetMapping("/{id}")
 	public Result<?> listById(@PathVariable String id) {
 		Article_Column column = columnService.findById(id);
-		Result<Article_Column> result = new Result<Article_Column>(true, StatusCode.OK, "查询成功", column);
+		Result<Article_Column> result = new Result<>(true, StatusCode.OK, "查询成功", column);
 		return result;
 	}
 	
@@ -62,7 +53,7 @@ public class ColumnController {
 	}
 	
 	@PostMapping("/search/{pageNum}")
-	public Result<?> searchPageabel(@RequestBody Article_Column column,
+	public Result<?> searchPageable(@RequestBody Article_Column column,
 			@PathVariable(value="pageNum") int pageNum) {
 		List<Article_Column> columns = columnService.searchPageable(column, pageNum);
 		Result<?> result = new Result<>(true, StatusCode.OK, "查询成功", columns);

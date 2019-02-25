@@ -3,9 +3,9 @@
  */
 package com.zhihao.tensquare.service;
 
-import java.util.List;
-
 import com.zhihao.tensquare.entity.Article;
+
+import java.util.List;
 
 /**
  * @author zzh
@@ -35,5 +35,5 @@ public interface ArticleService {
 
 	List<Article> findByChannelId(String channelId, int pageNum);
 
-	List<Article> findByBycolumnId(String columnId, int pageNum);
+	List<Article> findByByColumnId(String columnId, int pageNum);
 }

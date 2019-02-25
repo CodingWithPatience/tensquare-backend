@@ -3,23 +3,14 @@
  */
 package com.zhihao.tensquare.controller;
 
-import java.util.List;
-
-import com.zhihao.tensquare.service.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.zhihao.tensquare.constant.StatusCode;
 import com.zhihao.tensquare.dto.Result;
 import com.zhihao.tensquare.entity.Article;
+import com.zhihao.tensquare.service.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author zzh
@@ -104,7 +95,7 @@ public class ArticleController {
 	}
 	
 	@PostMapping("/search/{pageNum}")
-	public Result<?> searchPagable(@PathVariable(value="pageNum") int pageNum,
+	public Result<?> searchPageable(@PathVariable(value="pageNum") int pageNum,
 			@RequestBody Article article) {
 		List<Article> articles = articleService.searchPageable(article, pageNum);
 		Result<?> result = new Result<>(true, StatusCode.OK, "查询成功", articles);
@@ -119,9 +110,9 @@ public class ArticleController {
 		return result;
 	}
 	@GetMapping("/columnId/{columnId}/{pageNum}")
-	public Result<?> findBycolumnId(@PathVariable(value="columnId") String columnId,
+	public Result<?> findByColumnId(@PathVariable(value="columnId") String columnId,
 			@PathVariable(value="pageNum") int pageNum) {
-		List<Article> articles = articleService.findByBycolumnId(columnId, pageNum);
+		List<Article> articles = articleService.findByByColumnId(columnId, pageNum);
 		Result<?> result = new Result<>(true, StatusCode.OK, "查询成功", articles);
 		return result;
 	}
