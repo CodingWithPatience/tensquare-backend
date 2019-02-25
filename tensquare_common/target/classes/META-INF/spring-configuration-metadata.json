@@ -1,0 +1,23 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.zhihao.tensquare.util.JwtUtil",
+      "name": "jwt.config",
+      "type": "com.zhihao.tensquare.util.JwtUtil"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.zhihao.tensquare.util.JwtUtil",
+      "name": "jwt.config.key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhihao.tensquare.util.JwtUtil",
+      "defaultValue": 0,
+      "name": "jwt.config.ttl",
+      "type": "java.lang.Long"
+    }
+  ]
+}
